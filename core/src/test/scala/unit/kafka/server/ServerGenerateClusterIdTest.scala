@@ -32,6 +32,7 @@ import org.junit.Assert._
 import org.junit.{After, Before, Test}
 import org.scalatest.Assertions.assertThrows
 import org.apache.kafka.test.TestUtils.isValidClusterId
+import scala.language.postfixOps
 
 
 class ServerGenerateClusterIdTest extends ZooKeeperTestHarness {

@@ -16,18 +16,12 @@
  */
 package org.apache.kafka.jmh.server;
 
-import java.util.Properties;
 import kafka.cluster.Partition;
 import kafka.cluster.PartitionStateStore;
 import kafka.log.CleanerConfig;
 import kafka.log.LogConfig;
 import kafka.log.LogManager;
-import kafka.server.BrokerTopicStats;
-import kafka.server.KafkaConfig;
-import kafka.server.LogDirFailureChannel;
-import kafka.server.MetadataCache;
-import kafka.server.QuotaFactory;
-import kafka.server.ReplicaManager;
+import kafka.server.*;
 import kafka.server.checkpoints.OffsetCheckpoints;
 import kafka.utils.KafkaScheduler;
 import kafka.utils.MockTime;
@@ -39,28 +33,17 @@ import org.apache.kafka.common.metrics.Metrics;
 import org.apache.kafka.common.utils.Time;
 import org.apache.kafka.common.utils.Utils;
 import org.mockito.Mockito;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.Fork;
-import org.openjdk.jmh.annotations.Level;
-import org.openjdk.jmh.annotations.Measurement;
-import org.openjdk.jmh.annotations.OutputTimeUnit;
-import org.openjdk.jmh.annotations.Param;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
-import org.openjdk.jmh.annotations.TearDown;
-import org.openjdk.jmh.annotations.Threads;
-import org.openjdk.jmh.annotations.Warmup;
+import org.openjdk.jmh.annotations.*;
+import scala.Option;
+import scala.collection.JavaConverters;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
-
-import scala.collection.JavaConverters;
-import scala.Option;
 
 @Warmup(iterations = 5)
 @Measurement(iterations = 5)
