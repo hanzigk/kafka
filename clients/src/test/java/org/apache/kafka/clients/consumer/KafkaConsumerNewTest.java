@@ -13,7 +13,7 @@ import java.util.Properties;
 import static org.junit.Assert.assertEquals;
 
 public class KafkaConsumerNewTest {
-    
+
     @Test
     public void TestConstructor()
     {
