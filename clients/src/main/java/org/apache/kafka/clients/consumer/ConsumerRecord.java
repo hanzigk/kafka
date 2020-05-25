@@ -143,6 +143,22 @@ public class ConsumerRecord<K, V> {
      * @param headers The headers of the record
      * @param leaderEpoch Optional leader epoch of the record (may be empty for legacy record formats)
      */
+
+    public ConsumerRecord makeRecord(String topic,
+                                     int partition,
+                                     long offset,
+                                     long timestamp,
+                                     TimestampType timestampType,
+                                     Long checksum,
+                                     int serializedKeySize,
+                                     int serializedValueSize,
+                                     K key,
+                                     V value,
+                                     Headers headers,
+                                     Optional<Integer> leaderEpoch)
+    {
+        return new ConsumerRecord(topic,partition,offset,timestamp,timestampType,checksum,serializedKeySize,serializedValueSize,key,value,headers,leaderEpoch);
+    }
     public ConsumerRecord(String topic,
                           int partition,
                           long offset,

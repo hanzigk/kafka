@@ -40,7 +40,8 @@ buildscript {
     classpath "org.gradle:test-retry-gradle-plugin:$versions.testRetryPlugin"
   }
 }
-
+repositories { jcenter() }
+dependencies { testImplementation 'org.mockito:mockito-core:2.7.22' }
 apply plugin: "com.diffplug.gradle.spotless"
 spotless {
   scala {
