@@ -35,7 +35,7 @@ jdk:
   - oraclejdk8
 
 before_install:
-  - ./gradlew wrapper
+  - ./gradlew clean build test
 
 script:
   - ./gradlew rat
