@@ -38,7 +38,6 @@ before_install:
   - ./gradlew clean build test
 
 script:
-  - ./gradlew rat
   - ./gradlew systemTestLibs && /bin/bash ./tests/docker/run_tests.sh
 
 services:
