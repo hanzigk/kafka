@@ -1,6 +1,5 @@
 package org.apache.kafka.clients.consumer;
 
-import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.ByteArrayDeserializer;
 import org.apache.kafka.test.MockMetricsReporter;
 import org.junit.Test;
