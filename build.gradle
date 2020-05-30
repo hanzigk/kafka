@@ -60,28 +60,28 @@ allprojects {
   apply plugin: 'org.owasp.dependencycheck'
   apply plugin: 'com.github.ben-manes.versions'
 
-  dependencyUpdates {
-    revision="release"
-    resolutionStrategy {
-      componentSelection { rules ->
-        rules.all { ComponentSelection selection ->
-          boolean rejected = ['snap', 'alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
-            selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
-          }
-          if (rejected) {
-            selection.reject('Release candidate')
-          }
-        }
-      }
-    }
-    configurations {
-      runtime {
-        resolutionStrategy {
-          force "com.fasterxml.jackson.core:jackson-annotations:$versions.jackson"
-        }
-      }
-    }
-  }
+//  dependencyUpdates {
+//    revision="release"
+//    resolutionStrategy {
+//      componentSelection { rules ->
+//        rules.all { ComponentSelection selection ->
+//          boolean rejected = ['snap', 'alpha', 'beta', 'rc', 'cr', 'm'].any { qualifier ->
+//            selection.candidate.version ==~ /(?i).*[.-]${qualifier}[.\d-]*/
+//          }
+//          if (rejected) {
+//            selection.reject('Release candidate')
+//          }
+//        }
+//      }
+//    }
+//    configurations {
+//      runtime {
+//        resolutionStrategy {
+//          force "com.fasterxml.jackson.core:jackson-annotations:$versions.jackson"
+//        }
+//      }
+//    }
+//  }
 
   tasks.withType(Javadoc) {
     // disable the crazy super-strict doclint tool in Java 8
